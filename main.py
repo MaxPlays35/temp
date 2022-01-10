@@ -42,12 +42,13 @@ class Clock:
         hours = self.time // 60 // 60
         minutes = (self.time - hours * 60 * 60) // 60
         seconds = (self.time - hours * 60 * 60 - minutes * 60)
-        return f'{hours}:{minutes}:{seconds} PM'
+        return f'{hours}:{minutes}:{seconds} AM'
 
 
-time_1 = Clock(3)
+time_1 = Clock(3, 2)
 time_2 = Clock(121)
 time_3 = time_1 + Clock(86400)
 # time_4 = time_1 - time_2
+print(time_1)
 print(time_2)
 print(time_3)
