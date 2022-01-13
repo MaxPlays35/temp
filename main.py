@@ -1,3 +1,6 @@
+from __future__ import annotations
+
+
 class Clock:
     def __init__(self, *args) -> None:
         if len(args) == 3:
@@ -9,27 +12,27 @@ class Clock:
         else:
             self.time = 0
 
-    def __add__(self, inst: object):
+    def __add__(self, inst: Clock):
         return Clock((self.time + inst.time) % 86400)
 
-    def __sub__(self, inst: object):
+    def __sub__(self, inst: Clock):
         if self.time < inst.time:
             raise ValueError("First time must be greater that second")
         return Clock(abs((self.time - inst.time) % 86400))
 
-    def __eq__(self, inst: object) -> bool:
+    def __eq__(self, inst: Clock) -> bool:
         return self.time == inst.time
 
-    def __gt__(self, inst: object):
+    def __gt__(self, inst: Clock):
         return self.time > inst.time
 
-    def __lt__(self, ints: object):
+    def __lt__(self, ints: Clock):
         return self.time < ints.time
 
-    def __le__(self, inst: object):
+    def __le__(self, inst: Clock):
         return self.time <= inst.time
 
-    def __ge__(self, ints: object):
+    def __ge__(self, ints: Clock):
         return self.time >= ints.time
 
     def __str__(self) -> str:
